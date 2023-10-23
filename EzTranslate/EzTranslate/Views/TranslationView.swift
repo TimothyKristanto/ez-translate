@@ -9,9 +9,11 @@ import SwiftUI
 
 struct TranslationView: View {
 	@ObservedObject var translationViewModel = TranslationViewModel()
-	@State var sentence = ""
 	@State var selectedSourceLanguage = "English"
 	@State var selectedTargetLanguage = "Indonesian"
+	
+	@StateObject var speechRecognizer = SpeechRecognizer()
+	@State private var isRecording = false
 	
 	var languages = ["English", "Indonesian"]
 	
@@ -30,7 +32,7 @@ struct TranslationView: View {
 		let sourceLang = convertToCode(language: selectedSourceLanguage)
 		let targetLang = convertToCode(language: selectedTargetLanguage)
 		
-		translationViewModel.postTranslate(sentence: sentence, sourceLang: sourceLang, targetLang: targetLang)
+		translationViewModel.postTranslate(sentence: speechRecognizer.transcript, sourceLang: sourceLang, targetLang: targetLang)
 	}
 	
 	var body: some View {
@@ -42,7 +44,7 @@ struct TranslationView: View {
 					}
 				}
 				
-				TextField("Enter text...", text: $sentence)
+				TextField("Enter text...", text: $speechRecognizer.transcript)
 			}
 			.padding(.horizontal, 5)
 			
@@ -63,13 +65,33 @@ struct TranslationView: View {
 				translate()
 			} label: {
 				Text("Translate")
-					.padding(10)
-					.background(.blue)
-					.clipShape(RoundedRectangle(cornerRadius: 17))
-					.foregroundColor(.white)
-					.padding()
 			}
+			.padding(10)
+			.background(.blue)
+			.clipShape(RoundedRectangle(cornerRadius: 17))
+			.foregroundColor(.white)
 			.padding(.top, 30)
+			
+			Button {
+				if !isRecording {
+					speechRecognizer.transcribe()
+				} else {
+					speechRecognizer.stopTranscribing()
+				}
+				
+				isRecording.toggle()
+			} label: {
+				Text(isRecording ? "Stop" : "Speak")
+			}
+			.padding(10)
+			.foregroundColor(.white)
+			.background(isRecording ? .red : .blue)
+			.clipShape(RoundedRectangle(cornerRadius: 17))
+			.padding(.top, 10)
+			
+//			Text("Speech recognition: \(speechRecognizer.transcript)")
+//				.font(.callout)
+//				.padding(.top, 30)
 		}
 	}
 }
