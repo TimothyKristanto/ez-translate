@@ -12,7 +12,6 @@
 		BF246B032AE14DA300D1550D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF246B022AE14DA300D1550D /* Assets.xcassets */; };
 		BF246B062AE14DA300D1550D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF246B052AE14DA300D1550D /* Preview Assets.xcassets */; };
 		BF246B0F2AE14DE000D1550D /* TranslationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF246B0E2AE14DE000D1550D /* TranslationViewModel.swift */; };
-		BF246B122AE14E1F00D1550D /* TranslationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF246B112AE14E1F00D1550D /* TranslationModel.swift */; };
 		BF246B142AE14E7200D1550D /* TranslationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF246B132AE14E7200D1550D /* TranslationView.swift */; };
 		BFC932B42AE5527400196D9D /* SpeechRecognizerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC932B32AE5527400196D9D /* SpeechRecognizerHelper.swift */; };
 /* End PBXBuildFile section */
@@ -24,7 +23,6 @@
 		BF246B022AE14DA300D1550D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF246B052AE14DA300D1550D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF246B0E2AE14DE000D1550D /* TranslationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewModel.swift; sourceTree = "<group>"; };
-		BF246B112AE14E1F00D1550D /* TranslationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModel.swift; sourceTree = "<group>"; };
 		BF246B132AE14E7200D1550D /* TranslationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationView.swift; sourceTree = "<group>"; };
 		BFC932B32AE5527400196D9D /* SpeechRecognizerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				BFC932B02AE551F400196D9D /* Helpers */,
-				BF246B102AE14E0E00D1550D /* Models */,
 				BF246B0D2AE14DB900D1550D /* Views */,
 				BF246B0C2AE14DAD00D1550D /* ViewModels */,
 				BF246AFE2AE14DA200D1550D /* EzTranslateApp.swift */,
@@ -93,14 +90,6 @@
 				BF246B132AE14E7200D1550D /* TranslationView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		BF246B102AE14E0E00D1550D /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				BF246B112AE14E1F00D1550D /* TranslationModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		BFC932B02AE551F400196D9D /* Helpers */ = {
@@ -183,7 +172,6 @@
 			files = (
 				BF246B0F2AE14DE000D1550D /* TranslationViewModel.swift in Sources */,
 				BFC932B42AE5527400196D9D /* SpeechRecognizerHelper.swift in Sources */,
-				BF246B122AE14E1F00D1550D /* TranslationModel.swift in Sources */,
 				BF246B142AE14E7200D1550D /* TranslationView.swift in Sources */,
 				BF246B012AE14DA200D1550D /* ContentView.swift in Sources */,
 				BF246AFF2AE14DA200D1550D /* EzTranslateApp.swift in Sources */,

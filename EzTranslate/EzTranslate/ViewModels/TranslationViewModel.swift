@@ -8,13 +8,13 @@
 import Foundation
 
 class TranslationViewModel: ObservableObject {
-	@Published var translationModel: TranslationModel = TranslationModel()
+	@Published var translate_result: String = ""
 	
 	func postTranslate(sentence: String, sourceLang: String, targetLang: String) {
-		guard let url = URL(string: "http://127.0.0.1:5000/translate") else { return }
+		guard let url = URL(string: "https://ddc4-34-82-167-159.ngrok.io") else { return }
 		
 		let body: [String: String] = [
-			"sentence": sentence,
+			"text": sentence,
 			"target_lang": targetLang,
 			"source_lang": sourceLang
 		]
@@ -30,11 +30,11 @@ class TranslationViewModel: ObservableObject {
 			
 			do {
 				if let data = data {
-					let result = try JSONDecoder().decode(TranslationModel.self, from: data)
+					let result = try JSONDecoder().decode(String.self, from: data)
 					print(result)
 					
 					DispatchQueue.main.async {
-						self.translationModel = result
+						self.translate_result = result
 					}
 				} else {
 					print("No data!")

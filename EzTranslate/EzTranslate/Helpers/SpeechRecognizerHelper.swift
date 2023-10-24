@@ -105,7 +105,8 @@ class SpeechRecognizer: ObservableObject {
 		} else {
 			errorMessage += error.localizedDescription
 		}
-		transcript = "<< \(errorMessage) >>"
+		
+		print(errorMessage)
 	}
 	
 	func reset() {
